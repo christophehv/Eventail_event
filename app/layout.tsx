@@ -12,9 +12,9 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Eventail',
-  description: 'Eventtail est une plateforme pour gérer des évènements.',
+  description: 'Eventail est une plateforme de management d"évenement.',
   icons: {
-    icon: './public/assets/images/logo.svg',
+    icon: '/assets/images/logo.svg'
   }
 }
 

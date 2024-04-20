@@ -3,11 +3,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../ui/button"
 import NavItems from "./NavItems"
-import MobileNav from "./MobilNav"
+import MobileNav from "./MobileNav"
 
 const Header = () => {
   return (
-    <header className="w-full border-b"> 
+    <header className="w-full border-b">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image 
@@ -30,7 +30,7 @@ const Header = () => {
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
               <Link href="/sign-in">
-                Connexion
+                Login
               </Link>
             </Button>
           </SignedOut>
