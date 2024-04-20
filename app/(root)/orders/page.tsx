@@ -17,7 +17,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
       </section>
 
       <section className="wrapper mt-8">
-        <Search placeholder="Search buyer name..." />
+        <Search placeholder="Chercher par nom d'acheteur" />
       </section>
 
       <section className="wrapper overflow-x-auto">
@@ -35,7 +35,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
             {orders && orders.length === 0 ? (
               <tr className="border-b">
                 <td colSpan={5} className="py-4 text-center text-gray-500">
-                  No orders found.
+                  Pas de commande pour le moment
                 </td>
               </tr>
             ) : (

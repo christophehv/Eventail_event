@@ -53,8 +53,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
         <Collection 
           data={events?.data}
-          emptyTitle="No Events Found"
-          emptyStateSubtext="Come back later"
+          emptyTitle="Pas d'événements pour le moment"
+          emptyStateSubtext="Revenez plus tard pour découvrir plus d'événements."
           collectionType="All_Events"
           limit={6}
           page={page}
