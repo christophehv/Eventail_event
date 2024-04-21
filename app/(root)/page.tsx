@@ -1,4 +1,3 @@
-
 import CategoryFilter from '@/components/shared/CategoryFilter';
 import Collection from '@/components/shared/Collection'
 import Search from '@/components/shared/Search';
