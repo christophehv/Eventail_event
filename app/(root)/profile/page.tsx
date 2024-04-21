@@ -28,7 +28,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           <h3 className='h3-bold text-center sm:text-left'>Mes tickets</h3>
           <Button asChild size="lg" className="button hidden sm:flex">
             <Link href="/#events">
-              Plus d'événements
+              Plus d&apos;événements
             </Link>
           </Button>
         </div>

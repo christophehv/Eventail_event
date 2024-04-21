@@ -26,7 +26,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 className="h1-bold">Tout vos événements sur notre plateforme</h1>
-            <p className="p-regular-20 md:p-regular-24">Des milliers d'événements référencé, a vous de jouer maintenant</p>
+            <p className="p-regular-20 md:p-regular-24">Des milliers d&apos;événements référencé, a vous de jouer maintenant</p>
             <Button size="lg" asChild className="button w-full sm:w-fit">
               <Link href="#events">
                 Explorez les événements
@@ -45,7 +45,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
       </section> 
 
       <section id="events" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-        <h2 className="h2-bold">Des milliers <br /> d'organisteurs nous font confiance</h2>
+        <h2 className="h2-bold">Des milliers <br /> d&apos;organisteurs nous font confiance</h2>
 
         <div className="flex w-full flex-col gap-5 md:flex-row">
           <Search />

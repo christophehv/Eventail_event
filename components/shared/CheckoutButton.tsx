@@ -15,7 +15,7 @@ const CheckoutButton = ({ event }: { event: IEvent }) => {
   return (
     <div className="flex items-center gap-3">
       {hasEventFinished ? (
-        <p className="p-2 text-red-400">Désolé il n'ya plus de tickets</p>
+        <p className="p-2 text-red-400">Désolé il n&apos;ya plus de tickets</p>
       ): (
         <>
           <SignedOut>
