@@ -1,26 +1,33 @@
+// Import des composants nécessaires pour la recherche et l'affichage des commandes.
+import Search from '@/components/shared/Search';
+import { getOrdersByEvent } from '@/lib/actions/order.actions';
+import { formatDateTime, formatPrice } from '@/lib/utils';
+import { SearchParamProps } from '@/types';
+import { IOrderItem } from '@/lib/database/models/order.model';
 
-import Search  from '@/components/shared/Search'
-import { getOrdersByEvent } from '@/lib/actions/order.actions'
-import { formatDateTime, formatPrice } from '@/lib/utils'
-import { SearchParamProps } from '@/types'
-import { IOrderItem } from '@/lib/database/models/order.model'
-
+// Composant fonctionnel pour afficher et gérer les commandes.
 const Orders = async ({ searchParams }: SearchParamProps) => {
-  const eventId = (searchParams?.eventId as string) || ''
-  const searchText = (searchParams?.query as string) || ''
+  // Extraction des paramètres de recherche pour filtrer les commandes.
+  const eventId = (searchParams?.eventId as string) || '';
+  const searchText = (searchParams?.query as string) || '';
 
-  const orders = await getOrdersByEvent({ eventId, searchString: searchText })
+  // Récupération des commandes selon les filtres définis.
+  const orders = await getOrdersByEvent({ eventId, searchString: searchText });
 
+  // Rendu du composant.
   return (
     <>
-      <section className=" bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
-        <h3 className="wrapper h3-bold text-center sm:text-left ">Orders</h3>
+      {/* Section d'en-tête des commandes. */}
+      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+        <h3 className="wrapper h3-bold text-center sm:text-left">Commandes</h3>
       </section>
 
+      {/* Section de recherche pour filtrer les commandes par nom d'acheteur. */}
       <section className="wrapper mt-8">
         <Search placeholder="Chercher par nom d'acheteur" />
       </section>
 
+      {/* Section affichant les commandes sous forme de tableau. */}
       <section className="wrapper overflow-x-auto">
         <table className="w-full border-collapse border-t">
           <thead>
@@ -33,6 +40,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
             </tr>
           </thead>
           <tbody>
+            {/* Condition pour gérer l'affichage des commandes ou un message en cas d'absence de commande. */}
             {orders && orders.length === 0 ? (
               <tr className="border-b">
                 <td colSpan={5} className="py-4 text-center text-gray-500">
@@ -45,7 +53,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
                   orders.map((row: IOrderItem) => (
                     <tr
                       key={row._id}
-                      className="p-regular-14 lg:p-regular-16 border-b "
+                      className="p-regular-14 lg:p-regular-16 border-b"
                       style={{ boxSizing: 'border-box' }}>
                       <td className="min-w-[250px] py-4 text-primary-500">{row._id}</td>
                       <td className="min-w-[200px] flex-1 py-4 pr-4">{row.eventTitle}</td>
@@ -67,4 +75,5 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
   )
 }
 
-export default Orders
+// Exportation du composant Orders pour permettre son utilisation dans d'autres parties de l'application.
+export default Orders;

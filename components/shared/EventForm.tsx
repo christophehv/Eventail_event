@@ -22,7 +22,7 @@ import { useRouter } from "next/navigation"
 import { createEvent, updateEvent } from "@/lib/actions/event.actions"
 import { IEvent } from "@/lib/database/models/event.model"
 
-
+// Définition des props pour le composant EventForm.
 type EventFormProps = {
   userId: string
   type: "Create" | "Update"
@@ -30,6 +30,7 @@ type EventFormProps = {
   eventId?: string
 }
 
+// Composant EventForm pour la création et la mise à jour d'événements.
 const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([])
   const initialValues = event && type === 'Update' 
@@ -48,9 +49,11 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     defaultValues: initialValues
   })
  
+   // Fonction pour gérer la soumission du formulaire, créant ou mettant à jour un événement.
   async function onSubmit(values: z.infer<typeof eventFormSchema>) {
     let uploadedImageUrl = values.imageUrl;
 
+    // Gestion de l'upload d'image si nécessaire.
     if(files.length > 0) {
       const uploadedImages = await startUpload(files)
 
@@ -61,7 +64,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
       uploadedImageUrl = uploadedImages[0].url
     }
 
-    console.log(values)
+    // Logique conditionnelle pour créer ou mettre à jour un événement.
     if(type === 'Create') {
       try {
         const newEvent = await createEvent({
@@ -102,6 +105,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     }
   }
 
+    // Rendu du formulaire avec des champs conditionnels pour la création ou la mise à jour.
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -261,7 +265,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                   <FormControl>
                     <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                       <Image
-                        src="/assets/icons/euro.svg"
+                        src="/assets/icons/dollar.svg"
                         alt="dollar"
                         width={24}
                         height={24}

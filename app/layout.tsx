@@ -9,13 +9,11 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
 })
-
+// Définition des métadonnées de l'application, utilisées par Next.js pour le SEO
 export const metadata: Metadata = {
   title: 'Eventail',
   description: 'Eventail est une plateforme de management d"évenement.',
-  icons: {
-    icon: '/assets/images/logo.svg'
-  }
+  
 }
 
 export default function RootLayout({
@@ -25,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="fr">
         <body className={poppins.variable}>{children}</body>
       </html>
     </ClerkProvider>

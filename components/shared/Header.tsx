@@ -5,15 +5,14 @@ import { Button } from "../ui/button"
 import NavItems from "./NavItems"
 import MobileNav from "./MobileNav"
 
+
+// Composant Header pour l'en-tête de la page.
 const Header = () => {
   return (
     <header className="w-full border-b">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
-          <Image 
-            src="/assets/images/logo.svg" width={128} height={38}
-            alt="Evently logo" 
-          />
+        <h1 className="font-weight: 900">EVENTAIL</h1>
         </Link>
 
         <SignedIn>
